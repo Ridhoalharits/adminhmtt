@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "newsrooms",
+  "info": {
+    "singularName": "newsroom",
+    "pluralName": "newsrooms",
+    "displayName": "newsroom"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "bodycopy": {
+      "type": "text"
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
