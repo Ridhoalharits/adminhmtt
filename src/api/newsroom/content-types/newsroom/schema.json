@@ -4,7 +4,8 @@
   "info": {
     "singularName": "newsroom",
     "pluralName": "newsrooms",
-    "displayName": "newsroom"
+    "displayName": "newsroom",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,15 +15,16 @@
     "Headline": {
       "type": "string"
     },
-    "bodycopy": {
-      "type": "text"
-    },
     "thumbnail": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bodycopy": {
+      "type": "blocks",
       "required": true
     }
   }

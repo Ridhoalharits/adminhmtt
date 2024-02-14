@@ -362,38 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiNewsroomNewsroom extends Schema.CollectionType {
-  collectionName: 'newsrooms';
-  info: {
-    singularName: 'newsroom';
-    pluralName: 'newsrooms';
-    displayName: 'newsroom';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Headline: Attribute.String;
-    bodycopy: Attribute.Text;
-    thumbnail: Attribute.Media & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::newsroom.newsroom',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::newsroom.newsroom',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -800,6 +768,134 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiHeadlineHeadline extends Schema.SingleType {
+  collectionName: 'headlines';
+  info: {
+    singularName: 'headline';
+    pluralName: 'headlines';
+    displayName: 'headline';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.String;
+    desc: Attribute.Text & Attribute.Required;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::headline.headline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::headline.headline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLaboratoryLaboratory extends Schema.CollectionType {
+  collectionName: 'laboratories';
+  info: {
+    singularName: 'laboratory';
+    pluralName: 'laboratories';
+    displayName: 'Laboratory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title_Lab: Attribute.String & Attribute.Required;
+    lab_desc: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::laboratory.laboratory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::laboratory.laboratory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNewsroomNewsroom extends Schema.CollectionType {
+  collectionName: 'newsrooms';
+  info: {
+    singularName: 'newsroom';
+    pluralName: 'newsrooms';
+    displayName: 'newsroom';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Headline: Attribute.String;
+    thumbnail: Attribute.Media & Attribute.Required;
+    bodycopy: Attribute.Blocks & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::newsroom.newsroom',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::newsroom.newsroom',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiParagraphParagraph extends Schema.CollectionType {
+  collectionName: 'paragraphs';
+  info: {
+    singularName: 'paragraph';
+    pluralName: 'paragraphs';
+    displayName: 'paragraph';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    judul: Attribute.String & Attribute.Required;
+    parag: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::paragraph.paragraph',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::paragraph.paragraph',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -810,7 +906,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::newsroom.newsroom': ApiNewsroomNewsroom;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -819,6 +914,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::headline.headline': ApiHeadlineHeadline;
+      'api::laboratory.laboratory': ApiLaboratoryLaboratory;
+      'api::newsroom.newsroom': ApiNewsroomNewsroom;
+      'api::paragraph.paragraph': ApiParagraphParagraph;
     }
   }
 }

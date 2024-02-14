@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "laboratories",
+  "info": {
+    "singularName": "laboratory",
+    "pluralName": "laboratories",
+    "displayName": "Laboratory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title_Lab": {
+      "type": "string",
+      "required": true
+    },
+    "lab_desc": {
+      "type": "richtext"
+    }
+  }
+}
